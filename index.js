@@ -59,10 +59,10 @@ app.put('/kandang/:id', async (req, res) => {
     try {
         const kandang = await db.Kandang.findByPk(id);
         if (!kandang) {
-            return res.status(404).send({ message: 'hewan not found' });
+            return res.status(404).send({ message: 'data not found' });
         }
         await kandang.update(data);
-        res.send({message: 'hewan updated successfully'}, kandang);
+        res.send({message: 'data updated successfully'}, kandang);
     } catch (error) {
         res.status(500).send({ message: error.message });
     }
