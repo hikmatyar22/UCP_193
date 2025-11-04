@@ -44,10 +44,10 @@ app.delete('/kandang/:id', async (req, res) => {
     try {
        const kandang = await db.Kandang.findByPk(id);
         if (!kandang) {
-            return res.status(404).send({ message: 'hewan tidak ditemukan' });
+            return res.status(404).send({ message: 'data tidak ditemukan' });
         }
         await kandang.destroy();
-        res.send({ message: 'Hewan berhasil dihapus' });
+        res.send({ message: 'data berhasil dihapus' });
     } catch (error) {
         res.status(500).send({ message: error.message });
     }
